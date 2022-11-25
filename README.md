@@ -1,1 +1,1 @@
-# s21_multilayer_perceptron
+# multilayer_perceptron
