@@ -33,6 +33,9 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -80,7 +83,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>50</y>
+        <y>40</y>
         <width>211</width>
         <height>32</height>
        </rect>
@@ -90,12 +93,12 @@
         <family>Geneva</family>
        </font>
       </property>
-      <layout class="QHBoxLayout" name="perceptron_implementation_box">
+      <layout class="QHBoxLayout" name="mode_box">
        <property name="spacing">
         <number>0</number>
        </property>
        <item>
-        <widget class="QRadioButton" name="perceptron_matrix_mode">
+        <widget class="QRadioButton" name="matrix_mode">
          <property name="font">
           <font>
            <family>Geneva</family>
@@ -117,7 +120,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="perceptron_graph_mode">
+        <widget class="QRadioButton" name="graph_mode">
          <property name="font">
           <font>
            <family>Geneva</family>
@@ -154,7 +157,7 @@
       <property name="styleSheet">
        <string notr="true">QTextBrowser {
 	background-color: black;
-	color: #60ff00;
+	color: #ffffff;
 }</string>
       </property>
       <property name="html">
@@ -164,12 +167,15 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Geneva'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Arial'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
+      <property name="placeholderText">
+       <string>Информация об обучении</string>
+      </property>
      </widget>
      <widget class="QLabel" name="label_layers">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>100</y>
+        <y>80</y>
         <width>231</width>
         <height>16</height>
        </rect>
@@ -194,7 +200,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>310</y>
+        <y>340</y>
         <width>141</width>
         <height>32</height>
        </rect>
@@ -209,10 +215,13 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="button_load_weights">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>310</y>
+        <y>340</y>
         <width>141</width>
         <height>32</height>
        </rect>
@@ -230,7 +239,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>130</y>
+        <y>155</y>
         <width>231</width>
         <height>16</height>
        </rect>
@@ -252,7 +261,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>257</y>
+        <y>260</y>
         <width>181</width>
         <height>20</height>
        </rect>
@@ -274,7 +283,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>155</y>
+        <y>180</y>
         <width>181</width>
         <height>20</height>
        </rect>
@@ -293,10 +302,13 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="button_learning">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>340</y>
+        <y>370</y>
         <width>291</width>
         <height>32</height>
        </rect>
@@ -314,7 +326,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>125</y>
+        <y>150</y>
         <width>51</width>
         <height>22</height>
        </rect>
@@ -327,7 +339,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>97</y>
+        <y>77</y>
         <width>51</width>
         <height>22</height>
        </rect>
@@ -346,7 +358,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>183</y>
+        <y>208</y>
         <width>231</width>
         <height>16</height>
        </rect>
@@ -371,13 +383,16 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>180</y>
+        <y>205</y>
         <width>51</width>
         <height>22</height>
        </rect>
       </property>
       <property name="minimum">
-       <number>1</number>
+       <number>2</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
       </property>
      </widget>
      <widget class="QCustomPlot" name="graph" native="true">
@@ -407,13 +422,13 @@ p, li { white-space: pre-wrap; }
 }</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_time">
+     <widget class="QCheckBox" name="check_default_weights">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>285</y>
-        <width>231</width>
-        <height>16</height>
+        <y>316</y>
+        <width>261</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="font">
@@ -422,37 +437,21 @@ p, li { white-space: pre-wrap; }
         <bold>false</bold>
        </font>
       </property>
-      <property name="text">
-       <string>Время на обучение:</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::AutoText</enum>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="line_time">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>283</y>
-        <width>81</width>
-        <height>21</height>
-       </rect>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="text">
-       <string>0</string>
+       <string>Использовать случайные веса</string>
       </property>
-      <property name="readOnly">
+      <property name="checked">
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="button_delete_learning">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
+     <widget class="QPushButton" name="button_load_file_for_learning">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>370</y>
+        <y>285</y>
         <width>291</width>
         <height>32</height>
        </rect>
@@ -463,7 +462,20 @@ p, li { white-space: pre-wrap; }
        </font>
       </property>
       <property name="text">
-       <string>Сбросить</string>
+       <string>Загрузить файл для обучения</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_gif">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>10</y>
+        <width>296</width>
+        <height>191</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>
@@ -473,12 +485,12 @@ p, li { white-space: pre-wrap; }
      </attribute>
      <widget class="QWidget" name="layoutWidget_2">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>93</y>
+        <y>80</y>
         <width>211</width>
         <height>32</height>
        </rect>
@@ -537,7 +549,7 @@ p, li { white-space: pre-wrap; }
      </widget>
      <widget class="QLabel" name="label_realization_test">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -560,51 +572,10 @@ p, li { white-space: pre-wrap; }
        <enum>Qt::AutoText</enum>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spin_count_layers_test">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>137</y>
-        <width>51</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="minimum">
-       <number>2</number>
-      </property>
-      <property name="maximum">
-       <number>5</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_layers_test">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>140</y>
-        <width>231</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Количество скрытых слоев:</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::AutoText</enum>
-      </property>
-     </widget>
      <widget class="QCheckBox" name="check_now_realization">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -622,17 +593,17 @@ p, li { white-space: pre-wrap; }
        <string>Текущая реализация</string>
       </property>
       <property name="checked">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="button_load_weights_test">
       <property name="enabled">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>170</y>
+        <y>120</y>
         <width>291</width>
         <height>32</height>
        </rect>
@@ -646,27 +617,6 @@ p, li { white-space: pre-wrap; }
        <string>Загрузить веса</string>
       </property>
      </widget>
-     <widget class="QCheckBox" name="check_default_file">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>210</y>
-        <width>281</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Дефолтный файл для тестов</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
      <widget class="QPushButton" name="button_load_file_test">
       <property name="enabled">
        <bool>false</bool>
@@ -674,7 +624,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>240</y>
+        <y>300</y>
         <width>291</width>
         <height>32</height>
        </rect>
@@ -685,12 +635,12 @@ p, li { white-space: pre-wrap; }
        </font>
       </property>
       <property name="text">
-       <string>Выбрать файл</string>
+       <string>Выбрать файл тестовых данных</string>
       </property>
      </widget>
      <widget class="QPushButton" name="button_run_test">
       <property name="enabled">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="geometry">
        <rect>
@@ -745,6 +695,9 @@ p, li { white-space: pre-wrap; }
         <pointsize>13</pointsize>
        </font>
       </property>
+      <property name="minimum">
+       <double>0.050000000000000</double>
+      </property>
       <property name="maximum">
        <double>1.000000000000000</double>
       </property>
@@ -761,7 +714,7 @@ p, li { white-space: pre-wrap; }
         <x>330</x>
         <y>10</y>
         <width>301</width>
-        <height>391</height>
+        <height>381</height>
        </rect>
       </property>
       <property name="font">
@@ -908,7 +861,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>180</x>
-         <y>40</y>
+         <y>70</y>
          <width>113</width>
          <height>21</height>
         </rect>
@@ -929,7 +882,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>180</x>
-         <y>70</y>
+         <y>40</y>
          <width>113</width>
          <height>21</height>
         </rect>
@@ -1098,6 +1051,9 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
      <widget class="QPushButton" name="button_process">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>350</x>
@@ -1108,7 +1064,7 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1126,7 +1082,7 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1196,11 +1152,34 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="font">
        <font>
-        <pointsize>16</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="text">
        <string>Очистить</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>219</y>
+        <width>271</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <italic>true</italic>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
+      <property name="text">
+       <string>Настройка нейронной сети происходит во вкладке &quot;Тестирование&quot;</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -1211,7 +1190,7 @@ p, li { white-space: pre-wrap; }
   <customwidget>
    <class>QCustomPlot</class>
    <extends>QWidget</extends>
-   <header location="global">qcustomplot.h</header>
+   <header>view/qcustomplot.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
